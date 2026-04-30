@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="sacred">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmos AI Lab — Brand DNA Showcase</title>
+
+<!-- Google Fonts: 5 families phục vụ 3 themes
+     Cormorant Garamond  → Sacred Laboratory (display italic)
+     Space Grotesk       → Cosmic Glass (display sans)
+     Archivo Black       → Phantom Lab (heavy black display, theme MỚI)
+     Playfair Display    → Phantom Lab (italic serif accent, theme MỚI)
+     Inter + JetBrains   → tất cả themes chia sẻ cho body + mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================================
+   COSMOS AI LAB — BRAND DNA SHOWCASE
+   ============================================================================
+   Inspired by Google Stitch theme preview pattern.
+   Single HTML file, no external deps except Google Fonts.
+
+   ARCHITECTURE:
+   - All tokens = CSS Custom Properties at :root
+   - Theme switching = change [data-theme] attribute
+   - Adding new theme = add new [data-theme="name"] block (see bottom)
+
+   2 THEMES INCLUDED:
+   - "sacred"  — Sacred Laboratory (warm gold + emerald, Architect proposal)
+   - "cosmic"  — Cosmic Glass (refined indigo + glass, Atlas direction tuned)
+============================================================================ */
+
+
+/* ============================================================================
+   THEME 1: SACRED LABORATORY (default)
+   Mood: Sacred temple meets quantum laboratory.
+   Vietnamese cosmic + Akashic Records aesthetic.
+============================================================================ */
+[data-theme="sacred"] {
+  /* === COLOR PALETTE === */
+  /* Primary — Saffron Gold (lotus, golden hour) */
+  --primary-50:  #FBF6E8;
+  --primary-100: #F4E8C2;
+  --primary-200: #ECD89A;
+  --primary-300: #E3C772;
+  --primary-400: #DBB85F;
+  --primary-500: #D4AF6F;  /* ⭐ Brand primary */
+  --primary-600: #B89352;
+  --primary-700: #94753F;
+  --primary-800: #6B5530;
+  --primary-900: #4A3B22;
+
+  /* Secondary — Lotus Emerald (life, growth) */
+  --secondary-50:  #E8F1EB;
+  --secondary-100: #C5DDCD;
+  --secondary-200: #9FC6AC;
+  --secondary-300: #79AE8B;
+  --secondary-400: #5C9C73;
+  --secondary-500: #4A7A5C;  /* ⭐ Secondary accent */
+  --secondary-600: #3E6750;
+  --secondary-700: #325441;
+  --secondary-800: #244031;
+  --secondary-900: #182C20;
+
+  /* Tertiary — Cosmic Purple (depth, sparingly) */
+  --tertiary-50:  #EDEAF2;
+  --tertiary-100: #D2CADC;
+  --tertiary-200: #B4A8C4;
+  --tertiary-300: #9686AB;
+  --tertiary-400: #786894;
+  --tertiary-500: #5A4A7C;  /* ⭐ Tertiary depth */
+  --tertiary-600: #4B3D67;
+  --tertiary-700: #3A3050;
+  --tertiary-800: #29223A;
+  --tertiary-900: #1A1626;
+
+  /* Neutral — Warm parchment grays */
+  --neutral-0:   #F2EBD9;  /* Warm parchment — text primary */
+  --neutral-100: #D9D2BF;
+  --neutral-200: #B8AC91;
+  --neutral-300: #918B79;
+  --neutral-400: #6B6557;
+  --neutral-500: #4A4438;
+  --neutral-600: #2E2A20;
+  --neutral-700: #1F2520;  /* Stone surface */
+  --neutral-800: #161B16;
+  --neutral-900: #0F1410;
+  --neutral-1000: #0A0E0A; /* Deepest cosmic */
+
+  /* === SEMANTIC TOKENS === */
+  --bg-page:        var(--neutral-1000);
+  --bg-canvas:      var(--neutral-900);
+  --bg-elevated:    var(--neutral-800);
+  --bg-stone:       var(--neutral-700);
+  --text-primary:   var(--neutral-0);
+  --text-secondary: var(--neutral-200);
+  --text-tertiary:  var(--neutral-400);
+  --text-on-primary: #1A1810;
+  --border-subtle:  rgba(212, 175, 111, 0.12);
+  --border-medium:  rgba(212, 175, 111, 0.24);
+  --border-strong:  rgba(212, 175, 111, 0.40);
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-display-style: italic;
+
+  /* === RADIUS === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* === THEME META === */
+  --theme-name: 'Sacred Laboratory';
+  --theme-tagline: 'Where ancient wisdom meets quantum future';
+}
+
+
+/* ============================================================================
+   THEME 2: COSMIC GLASS
+   Mood: Premium AI lab, refined indigo glassmorphism.
+   Atlas's original direction tuned up.
+============================================================================ */
+[data-theme="cosmic"] {
+  /* === COLOR PALETTE === */
+  /* Primary — Refined Indigo (deeper, more violet than Tailwind default) */
+  --primary-50:  #EEEAFF;
+  --primary-100: #D1C5FF;
+  --primary-200: #AE9CFF;
+  --primary-300: #8B72FF;
+  --primary-400: #7556FF;
+  --primary-500: #7C5CFF;  /* ⭐ Brand primary — distinct from Tailwind */
+  --primary-600: #5F3FE0;
+  --primary-700: #4B30B8;
+  --primary-800: #371F8A;
+  --primary-900: #221163;
+
+  /* Secondary — Cosmic Cyan (data, focus) */
+  --secondary-50:  #E0F7FF;
+  --secondary-100: #B5E9FE;
+  --secondary-200: #88DAFB;
+  --secondary-300: #5BCEFA;
+  --secondary-400: #3FBEF0;
+  --secondary-500: #29A7DC;
+  --secondary-600: #1F8AB8;
+  --secondary-700: #166D94;
+  --secondary-800: #0E5070;
+  --secondary-900: #073452;
+
+  /* Tertiary — Magenta accent (highlights only) */
+  --tertiary-50:  #FFE5F0;
+  --tertiary-100: #FFB8D6;
+  --tertiary-200: #FF8AB8;
+  --tertiary-300: #FF5C9A;
+  --tertiary-400: #FF3D85;
+  --tertiary-500: #FF2470;
+  --tertiary-600: #DD195C;
+  --tertiary-700: #B11248;
+  --tertiary-800: #850D34;
+  --tertiary-900: #5A0822;
+
+  /* Neutral — cool slate grays */
+  --neutral-0:   #FFFFFF;
+  --neutral-100: #F1F1F5;
+  --neutral-200: #C5C5D2;
+  --neutral-300: #8B8BA0;
+  --neutral-400: #5A5A75;
+  --neutral-500: #3A3A52;
+  --neutral-600: #25253A;
+  --neutral-700: #1A1A2E;
+  --neutral-800: #0F0F1A;
+  --neutral-900: #08080F;
+  --neutral-1000: #050509;
+
+  /* === SEMANTIC TOKENS === */
+  --bg-page:        var(--neutral-1000);
+  --bg-canvas:      var(--neutral-900);
+  --bg-elevated:    var(--neutral-800);
+  --bg-stone:       var(--neutral-700);
+  --text-primary:   var(--neutral-0);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary:  rgba(255, 255, 255, 0.4);
+  --text-on-primary: #FFFFFF;
+  --border-subtle:  rgba(255, 255, 255, 0.08);
+  --border-medium:  rgba(255, 255, 255, 0.16);
+  --border-strong:  rgba(124, 92, 255, 0.40);
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-display-style: normal;
+
+  /* === RADIUS === */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* === THEME META === */
+  --theme-name: 'Cosmic Glass';
+  --theme-tagline: 'Premium intelligence, refined geometry';
+}
+
+
+/* ============================================================================
+   THEME 3: PHANTOM LAB (NEW — typography-driven, editorial magazine vibe)
+   ─────────────────────────────────────────────────────────────────────────
+   Inspired by Alex's reference screenshots (NEURAL.LAB + PHANTOM.LAB):
+   - Heavy black display sans (Archivo Black) cho big statements
+   - Playfair Display italic cho elegant accent words
+   - Clean Inter cho body
+   - Pure dark + amber/orange accent (premium editorial)
+
+   Mood: Award-winning agency portfolio + editorial magazine.
+============================================================================ */
+[data-theme="phantom"] {
+  /* === COLOR PALETTE === */
+  /* Primary — Burnt Amber (orange dot trong screenshot 2 = brand accent) */
+  --primary-50:  #FFF4E5;
+  --primary-100: #FFE0B8;
+  --primary-200: #FFCB89;
+  --primary-300: #FFB75A;
+  --primary-400: #FFA63D;
+  --primary-500: #FF8A1F;  /* ⭐ Brand primary — burnt amber accent */
+  --primary-600: #E6720D;
+  --primary-700: #B85906;
+  --primary-800: #8A4204;
+  --primary-900: #5C2C02;
+
+  /* Secondary — Cream Paper (editorial highlight) */
+  --secondary-50:  #FDFCF8;
+  --secondary-100: #F8F4E8;
+  --secondary-200: #F0E9D0;
+  --secondary-300: #E5DCB8;
+  --secondary-400: #D9CFA0;
+  --secondary-500: #C8BC85;
+  --secondary-600: #A8996A;
+  --secondary-700: #847756;
+  --secondary-800: #5E5640;
+  --secondary-900: #3E392C;
+
+  /* Tertiary — Cool Steel (dividers, secondary CTAs) */
+  --tertiary-50:  #F2F4F7;
+  --tertiary-100: #D8DDE5;
+  --tertiary-200: #B5BDCB;
+  --tertiary-300: #919BAE;
+  --tertiary-400: #6E7A8E;
+  --tertiary-500: #4F5A6C;
+  --tertiary-600: #3D4654;
+  --tertiary-700: #2E3540;
+  --tertiary-800: #1F242C;
+  --tertiary-900: #11141A;
+
+  /* Neutral — Pure dark grays (black-dominated editorial) */
+  --neutral-0:   #FFFFFF;
+  --neutral-100: #E8E8E8;
+  --neutral-200: #C4C4C4;
+  --neutral-300: #8E8E8E;
+  --neutral-400: #5C5C5C;
+  --neutral-500: #383838;
+  --neutral-600: #232323;
+  --neutral-700: #181818;
+  --neutral-800: #0F0F0F;
+  --neutral-900: #080808;
+  --neutral-1000: #000000;  /* Pure black */
+
+  /* === SEMANTIC TOKENS === */
+  --bg-page:        var(--neutral-1000);  /* Pure black canvas */
+  --bg-canvas:      var(--neutral-900);
+  --bg-elevated:    var(--neutral-800);
+  --bg-stone:       var(--neutral-700);
+  --text-primary:   var(--neutral-0);
+  --text-secondary: var(--neutral-200);
+  --text-tertiary:  var(--neutral-400);
+  --text-on-primary: #FFFFFF;
+  --border-subtle:  rgba(255, 255, 255, 0.08);
+  --border-medium:  rgba(255, 255, 255, 0.16);
+  --border-strong:  rgba(255, 138, 31, 0.50);
+
+  /* === TYPOGRAPHY (signature combo của theme này) === */
+  --font-display: 'Archivo Black', 'Helvetica Neue', sans-serif;  /* Heavy black display */
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-display-style: normal;  /* Archivo Black uppercase, không italic */
+
+  /* === RADIUS (subtle hơn cho editorial feel) === */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* === THEME META === */
+  --theme-name: 'Phantom Lab';
+  --theme-tagline: 'Editorial precision · Agency-grade typography';
+}
+
+/* ============================================================================
+   PHANTOM LAB — Special class cho italic serif accent
+   Sử dụng riêng cho từ italic trong heading (vd: "Crafting <em>Digital</em> Depth")
+   Khi user dùng <em> trong heading, browser tự apply style này.
+============================================================================ */
+[data-theme="phantom"] em {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-secondary);  /* Slightly muted để contrast với heavy display */
+}
+
+/* Outlined text effect (như "DIMENSIONS" trong screenshot 1) */
+[data-theme="phantom"] .text-outline {
+  -webkit-text-stroke: 2px var(--text-primary);
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+/* ============================================================================
+   GLOBAL STYLES (theme-agnostic structure)
+============================================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  transition: background 400ms ease, color 400ms ease;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================================
+   STICKY HEADER + THEME SWITCHER
+============================================================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 0;
+  background: rgba(10, 14, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 400ms ease;
+}
+[data-theme="cosmic"] header { background: rgba(5, 5, 9, 0.85); }
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  font-style: var(--font-display-style);
+  color: var(--text-primary);
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  background: conic-gradient(from 0deg,
+    var(--primary-400), var(--secondary-400), var(--tertiary-400),
+    var(--primary-400));
+  border-radius: 50%;
+  position: relative;
+  animation: slow-spin 60s linear infinite;
+}
+.brand-mark::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: var(--bg-page);
+  border-radius: 50%;
+}
+@keyframes slow-spin { to { transform: rotate(360deg); } }
+
+.theme-switcher {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+}
+.theme-btn {
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 240ms ease;
+}
+.theme-btn:hover { color: var(--text-primary); }
+.theme-btn.active {
+  background: var(--primary-500);
+  color: var(--text-on-primary);
+}
+
+/* ============================================================================
+   THEME META BANNER
+============================================================================ */
+.theme-meta {
+  padding: 80px 0 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.theme-meta .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--primary-500);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.theme-meta h1 {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.theme-meta p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   SECTIONS COMMON
+============================================================================ */
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.section-header {
+  margin-bottom: 48px;
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--primary-500);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 700px;
+}
+
+/* ============================================================================
+   1. COLOR TOKENS — palette với shade scales
+============================================================================ */
+.palette-group {
+  margin-bottom: 48px;
+}
+.palette-name {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.palette-role {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+}
+.shade-row {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 4px;
+}
+@media (max-width: 900px) {
+  .shade-row { grid-template-columns: repeat(6, 1fr); }
+}
+.shade {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  transition: transform 200ms ease;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.shade:hover { transform: translateY(-2px); }
+.shade.brand-marker {
+  outline: 2px solid var(--primary-300);
+  outline-offset: 2px;
+}
+.shade .shade-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  background: rgba(0,0,0,0.5);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: white;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   2. TYPOGRAPHY — Aa preview cards
+============================================================================ */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.type-card {
+  padding: 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.type-card .type-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.type-card .type-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+.type-card .type-font {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary-500);
+}
+.type-card .type-preview {
+  font-size: 96px;
+  line-height: 1;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.type-card.display .type-preview {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-weight: 500;
+}
+.type-card.body .type-preview {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+.type-card.mono .type-preview {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+.type-specimen {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-family: inherit;
+}
+.type-card.display .type-specimen {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 18px;
+}
+
+/* Type scale demo */
+.type-scale {
+  margin-top: 32px;
+  padding: 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.type-scale-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.type-scale-row:last-child { border: none; }
+.type-scale-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  min-width: 140px;
+  flex-shrink: 0;
+}
+.type-scale-sample {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+/* ============================================================================
+   3. SPACING + RADIUS
+============================================================================ */
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.token-card {
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.token-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+.token-value {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--primary-500);
+}
+.spacing-block {
+  height: 8px;
+  background: var(--primary-500);
+  border-radius: 2px;
+}
+.radius-block {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-500);
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   4. COMPONENTS — buttons, inputs, cards, badges, icons
+============================================================================ */
+.component-group {
+  margin-bottom: 40px;
+}
+.component-group-title {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+.component-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+/* === BUTTONS === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.btn-sm { padding: 8px 16px; font-size: 13px; }
+.btn-lg { padding: 16px 32px; font-size: 15px; }
+.btn-primary {
+  background: var(--primary-500);
+  color: var(--text-on-primary);
+}
+.btn-primary:hover {
+  background: var(--primary-400);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.btn-secondary {
+  background: var(--secondary-500);
+  color: white;
+}
+.btn-secondary:hover { background: var(--secondary-400); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+.btn-ghost:hover {
+  border-color: var(--primary-500);
+  color: var(--primary-500);
+}
+.btn-disabled {
+  background: var(--bg-stone);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-500);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* === INPUTS === */
+.input-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--bg-stone);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color 200ms ease;
+}
+.input::placeholder { color: var(--text-tertiary); }
+.input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--bg-stone);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  width: 100%;
+}
+.search-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+}
+
+/* === BADGES & CHIPS === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+.badge-primary { background: var(--primary-900); color: var(--primary-300); }
+.badge-secondary { background: var(--secondary-900); color: var(--secondary-300); }
+.badge-tertiary { background: var(--tertiary-900); color: var(--tertiary-300); }
+
+/* === CARDS === */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card {
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: transform 240ms ease, border-color 240ms ease;
+}
+.card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+.card-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--primary-700), var(--tertiary-700));
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+
+/* === ICONS (decorative SVG-free using unicode symbols) === */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 8px;
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.icon-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-stone);
+  border-radius: var(--radius-md);
+  font-size: 20px;
+  color: var(--primary-500);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ============================================================================
+   5. LIVE MOCKUP SCREENS — actual UI compositions
+============================================================================ */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+.mockup-card {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.mockup-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+.mockup-content { padding: 32px; }
+
+/* Mockup 1: Hero section preview */
+.mockup-hero .hero-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--primary-500);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.mockup-hero h2 {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.mockup-hero h2 em { color: var(--primary-500); }
+.mockup-hero p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.mockup-hero .actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Mockup 2: Pillar grid preview */
+.mockup-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.mockup-pillar {
+  padding: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+.mockup-pillar .num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--primary-500);
+  margin-bottom: 6px;
+}
+.mockup-pillar h4 {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.mockup-pillar p {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Mockup 3: Article preview */
+.mockup-article .article-meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.mockup-article h3 {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.mockup-article p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.mockup-article .read-more {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary-500);
+}
+
+/* ============================================================================
+   6. HOW TO ADD A NEW THEME — guide
+============================================================================ */
+.guide {
+  padding: 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+}
+.guide h3 {
+  font-family: var(--font-display);
+  font-style: var(--font-display-style);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.guide p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.guide pre {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  overflow-x: auto;
+  color: var(--primary-500);
+  line-height: 1.7;
+}
+
+/* ============================================================================
+   FOOTER
+============================================================================ */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================================
+     STICKY HEADER + THEME SWITCHER
+============================================================================ -->
+<header>
+  <div class="container header-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>Cosmos AI Lab</span>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);letter-spacing:0.2em;margin-left:12px;">/ BRAND DNA</span>
+    </div>
+    <div class="theme-switcher" role="tablist">
+      <button class="theme-btn active" data-target="sacred" onclick="switchTheme('sacred')">Sacred Laboratory</button>
+      <button class="theme-btn" data-target="cosmic" onclick="switchTheme('cosmic')">Cosmic Glass</button>
+      <button class="theme-btn" data-target="phantom" onclick="switchTheme('phantom')">Phantom Lab</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================================
+     THEME META BANNER (updates with theme)
+============================================================================ -->
+<div class="theme-meta">
+  <div class="container">
+    <p class="label" id="themeLabel">— Sacred Laboratory · Theme 01/02</p>
+    <h1 id="themeName">Sacred Laboratory</h1>
+    <p id="themeTagline">Where ancient wisdom meets quantum future</p>
+  </div>
+</div>
+
+<!-- ============================================================================
+     1. COLOR TOKENS
+============================================================================ -->
+<section class="section" id="colors">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">01 — Color Tokens</p>
+      <h2 class="section-title">Bảng màu — Palette System</h2>
+      <p class="section-desc">Mỗi palette có 11 shades (50 → 1000). Brand-marker (đường viền) chỉ shade chính. Click vào shade để copy hex.</p>
+    </div>
+
+    <!-- Primary palette -->
+    <div class="palette-group">
+      <h3 class="palette-name">Primary</h3>
+      <p class="palette-role" id="primaryRole">Saffron Gold · Lotus center · Brand signature</p>
+      <div class="shade-row" id="primaryShades"></div>
+    </div>
+
+    <!-- Secondary palette -->
+    <div class="palette-group">
+      <h3 class="palette-name">Secondary</h3>
+      <p class="palette-role" id="secondaryRole">Lotus Emerald · Life · Growth</p>
+      <div class="shade-row" id="secondaryShades"></div>
+    </div>
+
+    <!-- Tertiary palette -->
+    <div class="palette-group">
+      <h3 class="palette-name">Tertiary</h3>
+      <p class="palette-role" id="tertiaryRole">Cosmic Purple · Depth (sparingly)</p>
+      <div class="shade-row" id="tertiaryShades"></div>
+    </div>
+
+    <!-- Neutral palette -->
+    <div class="palette-group">
+      <h3 class="palette-name">Neutral</h3>
+      <p class="palette-role">Warm parchment to cosmic deep · Backgrounds + text</p>
+      <div class="shade-row" id="neutralShades"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     2. TYPOGRAPHY
+============================================================================ -->
+<section class="section" id="typography">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">02 — Typography</p>
+      <h2 class="section-title">Bộ chữ — Type System</h2>
+      <p class="section-desc">3 font families: Display (cho headlines), Body (cho paragraphs), Mono (cho code/labels).</p>
+    </div>
+
+    <div class="type-grid">
+      <div class="type-card display">
+        <div class="type-meta">
+          <span class="type-role">Display</span>
+          <span class="type-font" id="displayFont">Cormorant Garamond</span>
+        </div>
+        <div class="type-preview">Aa</div>
+        <div class="type-specimen">Where ancient wisdom meets quantum future</div>
+      </div>
+
+      <div class="type-card body">
+        <div class="type-meta">
+          <span class="type-role">Body</span>
+          <span class="type-font">Inter</span>
+        </div>
+        <div class="type-preview">Aa</div>
+        <div class="type-specimen">Cosmos AI Lab xây dựng các hệ thống AI hợp tác — nơi 8 AI engineers cùng nghiên cứu và build.</div>
+      </div>
+
+      <div class="type-card mono">
+        <div class="type-meta">
+          <span class="type-role">Mono</span>
+          <span class="type-font">JetBrains Mono</span>
+        </div>
+        <div class="type-preview">Aa</div>
+        <div class="type-specimen">$ npm run cosmos --build</div>
+      </div>
+    </div>
+
+    <!-- Type scale -->
+    <div class="type-scale">
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Display · 96px / 1.0</span>
+        <span class="type-scale-sample" style="font-size:64px;">Cosmos</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Heading 1 · 48px / 1.1</span>
+        <span class="type-scale-sample" style="font-size:48px;">Năm trụ cột</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Heading 2 · 32px / 1.2</span>
+        <span class="type-scale-sample" style="font-size:32px;">Methodology</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Heading 3 · 24px / 1.3</span>
+        <span class="type-scale-sample" style="font-size:24px;">Sacred laboratory</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Body Large · 18px / 1.6</span>
+        <span class="type-scale-sample" style="font-size:18px;font-family:var(--font-body);font-style:normal;font-weight:300;">AI engineering rigor meets cosmic vision.</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Body · 15px / 1.6</span>
+        <span class="type-scale-sample" style="font-size:15px;font-family:var(--font-body);font-style:normal;font-weight:300;">Solo founder + AI workforce = competitive với big tech.</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="type-scale-meta">Caption · 12px / 1.4</span>
+        <span class="type-scale-sample" style="font-size:12px;font-family:var(--font-mono);font-style:normal;font-weight:500;letter-spacing:0.1em;">— ARCHITECT NOTE · 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     3. SPACING + RADIUS
+============================================================================ -->
+<section class="section" id="tokens">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">03 — Spacing & Radius</p>
+      <h2 class="section-title">Hệ thống khoảng cách</h2>
+      <p class="section-desc">8pt base scale. Generous whitespace cho premium feel — restraint là signature.</p>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-style:var(--font-display-style);font-size:18px;font-weight:500;margin-bottom:16px;">Spacing scale (8pt)</h3>
+    <div class="token-grid" style="margin-bottom:32px;">
+      <div class="token-card"><div class="token-name">--space-1</div><div class="token-value">4px</div><div class="spacing-block" style="width:4px;"></div></div>
+      <div class="token-card"><div class="token-name">--space-2</div><div class="token-value">8px</div><div class="spacing-block" style="width:8px;"></div></div>
+      <div class="token-card"><div class="token-name">--space-4</div><div class="token-value">16px</div><div class="spacing-block" style="width:16px;"></div></div>
+      <div class="token-card"><div class="token-name">--space-6</div><div class="token-value">24px</div><div class="spacing-block" style="width:24px;"></div></div>
+      <div class="token-card"><div class="token-name">--space-8</div><div class="token-value">32px</div><div class="spacing-block" style="width:32px;"></div></div>
+      <div class="token-card"><div class="token-name">--space-12</div><div class="token-value">48px</div><div class="spacing-block" style="width:48px;"></div></div>
+      <div class="token-card"><div class="token-name">--space-16</div><div class="token-value">64px</div><div class="spacing-block" style="width:64px;"></div></div>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-style:var(--font-display-style);font-size:18px;font-weight:500;margin-bottom:16px;">Border radius</h3>
+    <div class="token-grid">
+      <div class="token-card"><div class="token-name">--radius-sm</div><div class="token-value">4px</div><div class="radius-block" style="border-radius:4px;"></div></div>
+      <div class="token-card"><div class="token-name">--radius-md</div><div class="token-value">8px</div><div class="radius-block" style="border-radius:8px;"></div></div>
+      <div class="token-card"><div class="token-name">--radius-lg</div><div class="token-value">16px</div><div class="radius-block" style="border-radius:16px;"></div></div>
+      <div class="token-card"><div class="token-name">--radius-pill</div><div class="token-value">999px</div><div class="radius-block" style="border-radius:999px;"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     4. COMPONENTS
+============================================================================ -->
+<section class="section" id="components">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">04 — Components</p>
+      <h2 class="section-title">Thành phần UI</h2>
+      <p class="section-desc">Building blocks tái sử dụng. Mỗi component thừa hưởng theme tokens — switch theme = đổi tất cả.</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="component-group">
+      <h3 class="component-group-title">Buttons</h3>
+      <div class="component-row">
+        <button class="btn btn-primary">Primary action</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-disabled">Disabled</button>
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+        <button class="btn-icon">→</button>
+        <button class="btn-icon" style="background:var(--secondary-500);">★</button>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="component-group">
+      <h3 class="component-group-title">Inputs & Search</h3>
+      <div class="component-row">
+        <div class="input-row">
+          <input class="input" placeholder="Email address">
+          <input class="input" type="password" placeholder="Password" value="••••••••">
+          <div class="search-box">
+            <span style="color:var(--text-tertiary);">⌕</span>
+            <input placeholder="Search the cosmos...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="component-group">
+      <h3 class="component-group-title">Badges & Chips</h3>
+      <div class="component-row">
+        <span class="badge badge-primary">Vision</span>
+        <span class="badge badge-secondary">Active</span>
+        <span class="badge badge-tertiary">New</span>
+        <span class="badge badge-primary">v1.1</span>
+        <span class="badge badge-secondary">Akashic</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="component-group">
+      <h3 class="component-group-title">Cards</h3>
+      <div class="card-row">
+        <div class="card">
+          <div class="card-thumb"></div>
+          <h4 class="card-title">Multi-AI Platform</h4>
+          <p class="card-desc">Orchestrate 4+ AI providers trong cùng 1 conversation thread.</p>
+          <div class="card-meta">
+            <span>Product · 2026</span>
+            <span>Live →</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-thumb" style="background:linear-gradient(135deg,var(--secondary-700),var(--primary-700));"></div>
+          <h4 class="card-title">Akashic Library</h4>
+          <p class="card-desc">Knowledge compounding loop — knowledge cards grow smarter mỗi tuần.</p>
+          <div class="card-meta">
+            <span>Product · 2026</span>
+            <span>Beta →</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-thumb" style="background:linear-gradient(135deg,var(--tertiary-700),var(--secondary-700));"></div>
+          <h4 class="card-title">Cosmos Operations</h4>
+          <p class="card-desc">Single pane of glass cho founder điều phối AI workforce.</p>
+          <div class="card-meta">
+            <span>Product · 2027</span>
+            <span>Soon →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icons -->
+    <div class="component-group">
+      <h3 class="component-group-title">Icons (decorative samples)</h3>
+      <div class="icon-grid">
+        <div class="icon-tile">⌕</div>
+        <div class="icon-tile">✦</div>
+        <div class="icon-tile">⊕</div>
+        <div class="icon-tile">◐</div>
+        <div class="icon-tile">⟢</div>
+        <div class="icon-tile">⌬</div>
+        <div class="icon-tile">⊛</div>
+        <div class="icon-tile">◈</div>
+        <div class="icon-tile">⚛</div>
+        <div class="icon-tile">⟁</div>
+        <div class="icon-tile">⌖</div>
+        <div class="icon-tile">⚭</div>
+      </div>
+      <p style="font-size:13px;color:var(--text-tertiary);margin-top:12px;font-family:var(--font-mono);">
+        Production: dùng Iconify (Phosphor regular hoặc duotone) — IC-01 from Cosmos Design System.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     4.5 PHANTOM LAB — Editorial Typography Showcase
+     (Section đặc biệt — show off khi user switch sang Phantom Lab theme)
+============================================================================ -->
+<section class="section" id="editorial-typography" style="padding-top:40px;">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">04.5 — Editorial Typography</p>
+      <h2 class="section-title">Heavy display + Italic serif accent</h2>
+      <p class="section-desc">
+        Đặc trưng <em>(unique to)</em> theme Phantom Lab —
+        kỹ thuật pairing <em>(ghép cặp)</em> phổ biến trong agency premium + editorial magazine.
+        Switch sang <strong>Phantom Lab</strong> để thấy effect đầy đủ.
+      </p>
+    </div>
+
+    <!-- Big editorial headline demo -->
+    <div style="padding: 80px 32px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); text-align: left;">
+      <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em; color: var(--primary-500); text-transform: uppercase; margin-bottom: 32px;">
+        ▪ 01 / PHILOSOPHY
+      </p>
+
+      <h2 style="font-family: var(--font-display); font-size: clamp(48px, 9vw, 120px); line-height: 0.95; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text-primary);">
+        CRAFTING
+      </h2>
+
+      <h2 style="font-family: var(--font-display); font-size: clamp(48px, 9vw, 120px); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 8px;">
+        <em style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 600; color: var(--text-secondary);">Digital</em>
+        <span style="color: var(--text-primary);">DEPTH</span>
+      </h2>
+
+      <!-- Outlined version (như "DIMENSIONS" trong screenshot 1) -->
+      <h2 class="text-outline" style="font-family: var(--font-display); font-size: clamp(48px, 9vw, 120px); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 32px;">
+        DIMENSIONS
+      </h2>
+
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-secondary); max-width: 540px; margin-bottom: 40px;">
+        We blend technical precision with artistic intuition to build
+        immersive web experiences that defy traditional dimensions.
+      </p>
+
+      <div style="display: flex; align-items: baseline; gap: 16px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(40px, 6vw, 64px); color: var(--text-primary);">124+</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em; color: var(--text-tertiary); text-transform: uppercase;">
+          Global Awards Won
+        </span>
+      </div>
+    </div>
+
+    <!-- 3-cell typography demo -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px;">
+      <div style="padding: 32px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <p style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; color: var(--text-tertiary); margin-bottom: 12px;">HEAVY DISPLAY</p>
+        <h3 style="font-family: var(--font-display); font-size: 56px; font-weight: 900; line-height: 0.95; color: var(--text-primary); margin-bottom: 8px;">Aa</h3>
+        <p style="font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono);">Archivo Black · 900</p>
+      </div>
+
+      <div style="padding: 32px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <p style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; color: var(--text-tertiary); margin-bottom: 12px;">ITALIC ACCENT</p>
+        <h3 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 56px; font-weight: 600; line-height: 1; color: var(--text-primary); margin-bottom: 8px;">Aa</h3>
+        <p style="font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono);">Playfair Display · 600 italic</p>
+      </div>
+
+      <div style="padding: 32px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <p style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; color: var(--text-tertiary); margin-bottom: 12px;">OUTLINED</p>
+        <h3 class="text-outline" style="font-family: var(--font-display); font-size: 56px; font-weight: 900; line-height: 0.95; margin-bottom: 8px;">Aa</h3>
+        <p style="font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono);">CSS: -webkit-text-stroke</p>
+      </div>
+    </div>
+
+    <!-- Note explaining technique -->
+    <div style="margin-top: 32px; padding: 24px; background: var(--bg-stone); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); border-left: 3px solid var(--primary-500);">
+      <p style="font-size: 14px; line-height: 1.7; color: var(--text-secondary);">
+        <strong style="color: var(--primary-500);">Technique note:</strong>
+        Heavy display sans (như Archivo Black) ghép với italic serif (Playfair Display) tạo
+        <em>tension</em> <em style="font-family:'Playfair Display',serif;">(sự đối lập)</em> giữa modern + classical
+        — pattern phổ biến trong magazine editorial design.
+        Outlined version dùng <code style="font-family: var(--font-mono); background: var(--bg-page); padding: 2px 6px; border-radius: 3px; font-size: 12px;">-webkit-text-stroke</code>
+        — same font, chỉ render stroke thay vì fill.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     5. LIVE MOCKUP SCREENS
+============================================================================ -->
+<section class="section" id="mockups">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">05 — Live Mockups</p>
+      <h2 class="section-title">Màn hình mẫu trực tiếp</h2>
+      <p class="section-desc">3 screen compositions thực tế. Switch theme phía trên để xem cách design system biến đổi.</p>
+    </div>
+
+    <div class="mockup-grid">
+
+      <!-- Mockup 1: Hero -->
+      <div class="mockup-card mockup-hero">
+        <div class="mockup-label">⊕ Hero · Homepage</div>
+        <div class="mockup-content">
+          <p class="hero-tag">— Vietnam · Est. 2025</p>
+          <h2>
+            Where <em>ancient wisdom</em><br>
+            meets <em>quantum future</em>.
+          </h2>
+          <p>Cosmos AI Lab xây dựng AI hợp tác — 8 AI engineers + 1 founder.</p>
+          <div class="actions">
+            <button class="btn btn-primary btn-sm">Explore →</button>
+            <button class="btn btn-ghost btn-sm">Products</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup 2: Pillar grid -->
+      <div class="mockup-card">
+        <div class="mockup-label">◈ Pillars · Section</div>
+        <div class="mockup-content">
+          <div class="mockup-pillars">
+            <div class="mockup-pillar">
+              <div class="num">01</div>
+              <h4>Vision</h4>
+              <p>Tầm nhìn vũ trụ — solo founder + AI workforce.</p>
+            </div>
+            <div class="mockup-pillar">
+              <div class="num">02</div>
+              <h4>Methodology</h4>
+              <p>Multi-AI Council. Engineering Charter v1.1.</p>
+            </div>
+            <div class="mockup-pillar">
+              <div class="num">03</div>
+              <h4>Products</h4>
+              <p>Multi-AI · Akashic · Meeting Room.</p>
+            </div>
+            <div class="mockup-pillar">
+              <div class="num">04</div>
+              <h4>Roadmap</h4>
+              <p>Akashic v1 → Multi-AI Pro → Cosmos Ops.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup 3: Article preview -->
+      <div class="mockup-card mockup-article">
+        <div class="mockup-label">✦ Article · Blog</div>
+        <div class="mockup-content">
+          <div class="article-meta">
+            <span class="badge badge-primary">Engineering</span>
+            <span class="badge badge-secondary">Charter</span>
+          </div>
+          <h3>Charter v1.1 — Six Pillars of AI Engineering</h3>
+          <p>Cosmos team consolidate 6 reviews trong 5 days, ship 1000-line charter codifying lessons learned từ Multi-AI + Akashic refactor scars.</p>
+          <p>Self-Proof Before Trust pattern (Vishnu's contribution) trở thành cornerstone — 7-line PR description giúp Alex audit risk without reading code.</p>
+          <div class="read-more">→ Read full article</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     6. HOW TO ADD A NEW THEME — guide for Alex
+============================================================================ -->
+<section class="section" id="extend">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">06 — Extend</p>
+      <h2 class="section-title">Tạo theme mới</h2>
+      <p class="section-desc">Khi Alex muốn try direction khác (vd: "Neon Cosmic", "Imperial Gold"), copy template dưới đây.</p>
+    </div>
+
+    <div class="guide">
+      <h3>3 bước thêm theme mới</h3>
+      <p><strong>Bước 1.</strong> Trong CSS, copy block <code>[data-theme="sacred"]</code> rename thành <code>[data-theme="your-name"]</code>. Đổi 11 shades primary/secondary/tertiary/neutral + font + radius theo direction mới.</p>
+      <p><strong>Bước 2.</strong> Trong HTML header, add nút mới: <code>&lt;button class="theme-btn" data-target="your-name" onclick="switchTheme('your-name')"&gt;Your Theme&lt;/button&gt;</code></p>
+      <p><strong>Bước 3.</strong> Trong JavaScript, thêm meta cho theme mới vào <code>themeMeta</code> object (tên + tagline + roles).</p>
+
+      <p style="margin-top:20px;"><strong>Template skeleton:</strong></p>
+      <pre>[data-theme="my-theme"] {
+  /* Primary */
+  --primary-500: #YOUR_HEX;
+  /* ... full 50-900 scale */
+
+  /* Secondary */
+  --secondary-500: #YOUR_HEX;
+  /* ... */
+
+  /* Fonts */
+  --font-display: 'YourFont', serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Theme meta */
+  --theme-name: 'My Theme';
+  --theme-tagline: 'Your tagline here';
+}</pre>
+
+      <p style="margin-top:20px;color:var(--text-secondary);">
+        <strong>Generate shade scale từ 1 hex</strong>: Dùng tool như <em>tailwindshades.com</em> hoặc <em>uicolors.app</em> — input 1 brand color, output 11 shades. Paste vào CSS xong.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     FOOTER
+============================================================================ -->
+<footer>
+  <div class="container">
+    <p>COSMOS AI LAB · BRAND DNA SHOWCASE v1 · ARCHITECT · 2026-04-30</p>
+  </div>
+</footer>
+
+
+<!-- ============================================================================
+     JAVASCRIPT — theme switcher + dynamic content
+============================================================================ -->
+<script>
+// === Theme metadata (updates banner + role labels) ===
+const themeMeta = {
+  sacred: {
+    name: 'Sacred Laboratory',
+    label: '— Sacred Laboratory · Theme 01/03',
+    tagline: 'Where ancient wisdom meets quantum future',
+    primaryRole: 'Saffron Gold · Lotus center · Brand signature',
+    secondaryRole: 'Lotus Emerald · Life · Growth',
+    tertiaryRole: 'Cosmic Purple · Depth (sparingly)',
+    displayFont: 'Cormorant Garamond'
+  },
+  cosmic: {
+    name: 'Cosmic Glass',
+    label: '— Cosmic Glass · Theme 02/03',
+    tagline: 'Premium intelligence, refined geometry',
+    primaryRole: 'Refined Indigo · Brand signature',
+    secondaryRole: 'Cosmic Cyan · Data · Focus',
+    tertiaryRole: 'Magenta accent · Highlights only',
+    displayFont: 'Space Grotesk'
+  },
+  phantom: {
+    name: 'Phantom Lab',
+    label: '— Phantom Lab · Theme 03/03',
+    tagline: 'Editorial precision · Agency-grade typography',
+    primaryRole: 'Burnt Amber · Brand accent (cam cháy)',
+    secondaryRole: 'Cream Paper · Editorial highlights',
+    tertiaryRole: 'Cool Steel · Dividers · Secondary CTAs',
+    displayFont: 'Archivo Black + Playfair Display'
+  }
+};
+
+function switchTheme(name) {
+  document.documentElement.setAttribute('data-theme', name);
+
+  // Update active button
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.target === name);
+  });
+
+  // Update meta banner + roles
+  const m = themeMeta[name];
+  document.getElementById('themeName').textContent = m.name;
+  document.getElementById('themeLabel').textContent = m.label;
+  document.getElementById('themeTagline').textContent = m.tagline;
+  document.getElementById('primaryRole').textContent = m.primaryRole;
+  document.getElementById('secondaryRole').textContent = m.secondaryRole;
+  document.getElementById('tertiaryRole').textContent = m.tertiaryRole;
+  document.getElementById('displayFont').textContent = m.displayFont;
+
+  // Re-render shade rows (because CSS vars changed)
+  renderShades();
+}
+
+// === Render shade swatches dynamically ===
+function renderShades() {
+  const groups = ['primary', 'secondary', 'tertiary', 'neutral'];
+  const stops = ['50','100','200','300','400','500','600','700','800','900'];
+
+  groups.forEach(group => {
+    const container = document.getElementById(group + 'Shades');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Special handling for neutral — uses 0, 100-900, 1000
+    const localStops = group === 'neutral'
+      ? ['0','100','200','300','400','500','600','700','800','900','1000']
+      : stops;
+
+    localStops.forEach(stop => {
+      const div = document.createElement('div');
+      div.className = 'shade';
+      if (stop === '500' && group !== 'neutral') div.classList.add('brand-marker');
+      const cssVar = `--${group}-${stop}`;
+      const hex = getComputedStyle(document.documentElement).getPropertyValue(cssVar).trim();
+      div.style.background = `var(${cssVar})`;
+      div.title = `${cssVar}: ${hex} — Click to copy`;
+      div.innerHTML = `<span class="shade-label">${stop}</span>`;
+      div.onclick = () => {
+        navigator.clipboard.writeText(hex);
+        div.querySelector('.shade-label').textContent = '✓';
+        setTimeout(() => { div.querySelector('.shade-label').textContent = stop; }, 1000);
+      };
+      container.appendChild(div);
+    });
+  });
+}
+
+// Initial render on page load
+// Check URL param ?theme= để Akashic UI / external apps deep-link tới theme cụ thể
+// Examples: ?theme=sacred · ?theme=cosmic · ?theme=phantom
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const requestedTheme = params.get('theme');
+  if (requestedTheme && ['sacred','cosmic','phantom'].includes(requestedTheme)) {
+    switchTheme(requestedTheme); // also calls renderShades() inside
+  } else {
+    renderShades();
+  }
+});
+</script>
+
+</body>
+</html>
