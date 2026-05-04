@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmos Brand System — v1 vs v2 Compare</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; background: #0F1410; color: #F2EBD9; font-family: 'Inter', sans-serif; }
+  body { display: flex; flex-direction: column; }
+
+  header {
+    flex: 0 0 auto;
+    padding: 16px 24px;
+    background: #161B16;
+    border-bottom: 1px solid rgba(212,175,111,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #F2EBD9;
+  }
+  .brand strong { color: #D4AF6F; font-weight: 600; }
+  .brand .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #6B6557;
+    margin-left: 12px;
+    text-transform: uppercase;
+  }
+
+  .controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .control-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #B8AC91;
+    margin-right: 4px;
+  }
+  .theme-pick {
+    padding: 8px 14px;
+    min-height: 36px;
+    background: transparent;
+    border: 1px solid rgba(212,175,111,0.24);
+    color: #B8AC91;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 240ms ease;
+  }
+  .theme-pick:hover { color: #F2EBD9; border-color: rgba(212,175,111,0.40); }
+  .theme-pick.active {
+    background: #D4AF6F;
+    color: #1A1810;
+    border-color: #D4AF6F;
+  }
+
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(212,175,111,0.12);
+    overflow: hidden;
+  }
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  }
+
+  .pane {
+    position: relative;
+    background: #0F1410;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pane-label {
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    background: #161B16;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B8AC91;
+    border-bottom: 1px solid rgba(212,175,111,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pane-label.v1 { color: #C44545; }
+  .pane-label.v2 { color: #5C9C73; }
+  .pane-score {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    color: #F2EBD9;
+    letter-spacing: 0.05em;
+  }
+  iframe {
+    flex: 1;
+    width: 100%;
+    border: 0;
+  }
+
+  .legend {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    background: rgba(15, 20, 16, 0.92);
+    border: 1px solid rgba(212,175,111,0.20);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    font-size: 11px;
+    line-height: 1.6;
+    max-width: 280px;
+    z-index: 10;
+  }
+  .legend strong { color: #D4AF6F; }
+  @media (max-width: 600px) { .legend { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    Cosmos Brand System — <strong>v1 vs v2</strong>
+    <span class="tag">/ IMPECCABLE COMPARE</span>
+  </div>
+  <div class="controls">
+    <span class="control-label">Theme:</span>
+    <button class="theme-pick active" data-theme="sacred" onclick="setTheme('sacred')">Sacred</button>
+    <button class="theme-pick" data-theme="cosmic" onclick="setTheme('cosmic')">Cosmic</button>
+    <button class="theme-pick" data-theme="phantom" onclick="setTheme('phantom')">Phantom</button>
+  </div>
+</header>
+
+<main>
+  <div class="pane">
+    <div class="pane-label v1">
+      <span>● v1 — Original</span>
+      <span class="pane-score">12 / 20</span>
+    </div>
+    <iframe id="iframeV1" src="index.html?theme=sacred" title="v1 — Original"></iframe>
+  </div>
+  <div class="pane">
+    <div class="pane-label v2">
+      <span>● v2 — Impeccable Polished</span>
+      <span class="pane-score">17 / 20</span>
+    </div>
+    <iframe id="iframeV2" src="v2.html?theme=sacred" title="v2 — Impeccable Polished"></iframe>
+  </div>
+</main>
+
+<div class="legend">
+  <strong>v2 fixes applied:</strong><br>
+  • ARIA labels (16 added, was 0)<br>
+  • Tinted neutrals (Cosmic/Phantom)<br>
+  • Tablet breakpoint @1024px<br>
+  • Touch targets 44×44px (WCAG)<br>
+  • <code>will-change</code> perf hints<br>
+  • Keyboard focus rings
+</div>
+
+<script>
+function setTheme(name) {
+  document.querySelectorAll('.theme-pick').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.theme === name);
+  });
+  document.getElementById('iframeV1').src = 'index.html?theme=' + name;
+  document.getElementById('iframeV2').src = 'v2.html?theme=' + name;
+}
+
+// Sync theme from URL param if provided
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const theme = params.get('theme');
+  if (theme && ['sacred','cosmic','phantom'].includes(theme)) {
+    setTheme(theme);
+  }
+});
+</script>
+
+</body>
+</html>
