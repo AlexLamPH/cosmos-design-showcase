@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CC-13 Indie Surreal Vinyl — Cosmos Design Showcase</title>
+
+<!-- Google Fonts: Vietnamese-supported serif + small caps + italic accent -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================================
+   CC-13: INDIE SURREAL VINYL — Showcase Preview
+   ============================================================================
+   Visual preview cho card AK-CODE-0019 (CC-13 Indie Surreal Vinyl).
+   Reference: mindartsy album "Một sợi nắng rơi ngang vai áo" (2024-25).
+
+   Pattern combines:
+   - Vintage vinyl album cover (60-70s LP record convention)
+   - Surreal collage (Magritte-inspired arch + sky elements)
+   - Mid-century modern editorial typography
+   - Indie folk music aesthetic (Fleet Foxes, Bon Iver, Phoebe Bridgers era)
+============================================================================ */
+
+:root {
+  /* === Color Palette (warm + cool combo) === */
+  --color-paper:       #F5EDE0;  /* Aged cream paper canvas */
+  --color-paper-warm:  #EFE3D2;  /* Slightly darker paper variant */
+  --color-mustard:     #D4A847;  /* Mustard yellow — sun, accent */
+  --color-terracotta:  #C95F3A;  /* Burnt orange — lower sun, anchor */
+  --color-sage:        #6B8E7F;  /* Sage teal green — nature, balance */
+  --color-indigo:      #2A3A5C;  /* Deep indigo — night sky, sea */
+  --color-cool-gray:   #8FA3B5;  /* Cool blue-gray — clouds, architecture */
+  --color-text:        #1A1814;  /* Near-black — typography */
+  --color-text-soft:   #4A453E;  /* Soft warm gray — body text */
+  --color-accent-line: #B89A65;  /* Tan — dividers */
+
+  /* === Typography Stack === */
+  --font-display: 'Fraunces', Georgia, serif;       /* Heavy serif headlines */
+  --font-body:    'Inter', system-ui, sans-serif;   /* UI body */
+  --font-mono:    'JetBrains Mono', monospace;      /* Small caps labels */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-paper);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Subtle paper texture via radial gradient */
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(184, 154, 101, 0.03) 1px, transparent 2px),
+    radial-gradient(circle at 75% 70%, rgba(184, 154, 101, 0.02) 1px, transparent 2px);
+  background-size: 60px 60px, 80px 80px;
+}
+
+/* === Showcase Frame === */
+.showcase-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--color-indigo);
+  color: var(--color-paper);
+  padding: 12px 32px;
+  border-bottom: 2px solid var(--color-mustard);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.showcase-header a {
+  color: var(--color-mustard);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 2px;
+}
+.showcase-header a:hover { color: var(--color-terracotta); }
+
+main { padding-top: 60px; }
+
+/* === Album Cover Hero === */
+.album-cover {
+  max-width: 960px;
+  margin: 32px auto;
+  background: var(--color-paper);
+  border: 2px solid var(--color-text);
+  padding: 32px 32px 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.album-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.brand-mark {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--color-paper);
+}
+.album-presents {
+  text-align: center;
+  flex: 1;
+  font-weight: 500;
+}
+.album-presents strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+.stereo-badge {
+  border: 2px solid var(--color-text);
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  background: var(--color-paper);
+}
+.stereo-badge strong {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+.stereo-badge span {
+  font-size: 8px;
+  margin-top: 2px;
+  color: var(--color-text-soft);
+}
+
+.album-title-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.album-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+.album-title small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 24px;
+  color: var(--color-text-soft);
+}
+
+/* === Surreal Collage Scene (SVG-based) === */
+.collage-scene {
+  position: relative;
+  aspect-ratio: 5/6;
+  background: var(--color-paper-warm);
+  overflow: hidden;
+}
+
+/* Sun layers */
+.sun-mustard {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--color-mustard);
+  border-radius: 50%;
+  top: 8%;
+  right: 8%;
+  opacity: 0.9;
+}
+.sun-terracotta {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: var(--color-terracotta);
+  border-radius: 50%;
+  bottom: 25%;
+  left: 25%;
+  opacity: 0.85;
+}
+
+/* Tree silhouette (right foreground) */
+.tree {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35%;
+  height: 65%;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 35%, var(--color-sage) 30%, transparent 60%);
+  filter: blur(1px);
+}
+.tree::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  width: 8%;
+  height: 35%;
+  background: linear-gradient(to top, var(--color-text) 20%, var(--color-sage) 80%);
+}
+
+/* Hill/ground */
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top,
+    var(--color-sage) 0%,
+    var(--color-sage) 40%,
+    rgba(107, 142, 127, 0.6) 100%);
+}
+
+/* Indigo arch (right) */
+.arch-indigo {
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: 28%;
+  height: 70%;
+  background: var(--color-indigo);
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  border-top: 3px solid var(--color-cool-gray);
+}
+.arch-indigo::before {
+  content: '🌙';
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  font-size: 28px;
+  filter: grayscale(0.5);
+}
+.arch-indigo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  background: repeating-linear-gradient(
+    to top,
+    transparent 0,
+    transparent 16px,
+    rgba(143, 163, 181, 0.3) 16px,
+    rgba(143, 163, 181, 0.3) 18px
+  );
+}
+
+/* Figure on architecture */
+.figure {
+  position: absolute;
+  top: 22%;
+  right: 22%;
+  width: 28px;
+  height: 36px;
+  background: var(--color-text);
+  border-radius: 50% 50% 20% 20%;
+  z-index: 10;
+}
+.figure::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+
+/* Center arch (sea) */
+.arch-sea {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 50%;
+  background: linear-gradient(to bottom,
+    var(--color-cool-gray) 0%,
+    var(--color-paper-warm) 40%,
+    var(--color-indigo) 100%);
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  border: 2px solid var(--color-cool-gray);
+}
+.arch-sea::after {
+  content: '☁';
+  position: absolute;
+  top: 25%;
+  right: 20%;
+  font-size: 36px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Bird */
+.bird {
+  position: absolute;
+  bottom: 40%;
+  left: 55%;
+  font-size: 24px;
+  color: var(--color-text);
+}
+
+/* Tracklist Strip */
+.tracklist-strip {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 2px solid var(--color-text);
+  border-bottom: 2px solid var(--color-text);
+  margin-bottom: 24px;
+}
+
+.track {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+.track-num {
+  display: inline-block;
+  padding: 2px 4px;
+  border: 1px solid var(--color-accent-line);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  line-height: 14px;
+  font-size: 9px;
+  margin-bottom: 4px;
+}
+.track-icon {
+  display: block;
+  font-size: 28px;
+  height: 50px;
+  width: 100%;
+  background: var(--color-paper-warm);
+  border: 1px solid var(--color-accent-line);
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.track-title {
+  font-size: 8px;
+  font-family: var(--font-mono);
+  color: var(--color-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+/* Bottom Quote */
+.album-quote {
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--color-text-soft);
+  line-height: 1.5;
+  padding: 0 32px;
+}
+.album-quote::before,
+.album-quote::after {
+  content: '"';
+  color: var(--color-mustard);
+  font-size: 24px;
+  vertical-align: middle;
+  margin: 0 6px;
+}
+
+/* === Tokens Callout Section === */
+.tokens-section {
+  max-width: 960px;
+  margin: 64px auto;
+  padding: 32px;
+  background: var(--color-paper-warm);
+  border: 2px dashed var(--color-accent-line);
+}
+.tokens-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 24px;
+}
+.tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+.token-swatch {
+  display: flex;
+  flex-direction: column;
+}
+.token-color {
+  height: 80px;
+  border: 1px solid var(--color-text);
+  margin-bottom: 8px;
+}
+.token-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.token-hex {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-soft);
+}
+
+/* === Typography demo === */
+.typography-demo {
+  max-width: 960px;
+  margin: 48px auto;
+  padding: 32px;
+  border: 2px solid var(--color-text);
+  background: var(--color-paper);
+}
+.type-row {
+  border-top: 1px solid var(--color-accent-line);
+  padding: 20px 0;
+}
+.type-row:first-child { border-top: none; padding-top: 0; }
+.type-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 8px;
+}
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.type-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--color-terracotta);
+}
+.type-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+.type-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* === Use Cases Section === */
+.usecases {
+  max-width: 960px;
+  margin: 48px auto;
+  padding: 32px;
+}
+.usecases h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+.usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.usecase {
+  padding: 24px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-accent-line);
+}
+.usecase strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--color-terracotta);
+}
+.usecase p {
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+
+/* === Footer === */
+.footer {
+  background: var(--color-indigo);
+  color: var(--color-paper);
+  padding: 32px;
+  margin-top: 48px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.footer-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-mustard);
+  margin-top: 12px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .album-title-section { grid-template-columns: 1fr; gap: 24px; }
+  .album-title { font-size: clamp(36px, 12vw, 60px); }
+  .tracklist-strip { grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .tracklist-strip .track:nth-child(n+7) { display: none; }
+  .type-h1 { font-size: 40px; }
+  .type-h2 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Showcase frame -->
+<div class="showcase-header">
+  <span>CC-13 INDIE SURREAL VINYL · Akashic: AK-CODE-0019</span>
+  <a href="https://akashic.cosmos-ai-lab.com/api/cards/AK-CODE-0019" target="_blank">Source card →</a>
+</div>
+
+<main>
+
+<!-- === ALBUM COVER HERO === -->
+<section class="album-cover">
+  <div class="album-top">
+    <div class="brand-mark">M</div>
+    <div class="album-presents">
+      MINDARTSY<br>
+      <strong>presents</strong>
+    </div>
+    <div class="stereo-badge">
+      <strong>STEREO</strong>
+      <span>HIGH FIDELITY</span>
+    </div>
+  </div>
+
+  <div class="album-title-section">
+    <h1 class="album-title">
+      Một sợi nắng rơi ngang vai áo
+      <small>AN ALBUM BY MINDARTSY</small>
+    </h1>
+
+    <div class="collage-scene">
+      <div class="sun-mustard"></div>
+      <div class="sun-terracotta"></div>
+      <div class="arch-sea"></div>
+      <div class="arch-indigo"></div>
+      <div class="figure"></div>
+      <div class="bird">↗</div>
+      <div class="tree"></div>
+      <div class="ground"></div>
+    </div>
+  </div>
+
+  <!-- Tracklist 12 tracks -->
+  <div class="tracklist-strip">
+    <div class="track">
+      <span class="track-num">01</span>
+      <div class="track-icon">🪟</div>
+      <div class="track-title">Một sợi nắng rơi ngang vai áo</div>
+    </div>
+    <div class="track">
+      <span class="track-num">02</span>
+      <div class="track-icon">✈</div>
+      <div class="track-title">Nơi những ngày trôi</div>
+    </div>
+    <div class="track">
+      <span class="track-num">03</span>
+      <div class="track-icon">⏰</div>
+      <div class="track-title">Đi giữa im lặng</div>
+    </div>
+    <div class="track">
+      <span class="track-num">04</span>
+      <div class="track-icon">🎨</div>
+      <div class="track-title">Giấc mơ màu nắng</div>
+    </div>
+    <div class="track">
+      <span class="track-num">05</span>
+      <div class="track-icon">☕</div>
+      <div class="track-title">Cửa sổ mưa</div>
+    </div>
+    <div class="track">
+      <span class="track-num">06</span>
+      <div class="track-icon">🍃</div>
+      <div class="track-title">Hẹn nhau ở một ngày khác</div>
+    </div>
+    <div class="track">
+      <span class="track-num">07</span>
+      <div class="track-icon">🖼</div>
+      <div class="track-title">Những khung hình cũ</div>
+    </div>
+    <div class="track">
+      <span class="track-num">08</span>
+      <div class="track-icon">🚲</div>
+      <div class="track-title">Tiếng gọi rất xa</div>
+    </div>
+    <div class="track">
+      <span class="track-num">09</span>
+      <div class="track-icon">💡</div>
+      <div class="track-title">Và nếu mai sau</div>
+    </div>
+    <div class="track">
+      <span class="track-num">10</span>
+      <div class="track-icon">🛤</div>
+      <div class="track-title">Trong một thoáng mơ</div>
+    </div>
+    <div class="track">
+      <span class="track-num">11</span>
+      <div class="track-icon">💿</div>
+      <div class="track-title">Một sợi nắng (reprise)</div>
+    </div>
+    <div class="track">
+      <span class="track-num">12</span>
+      <div class="track-icon">🌅</div>
+      <div class="track-title">Đường về</div>
+    </div>
+  </div>
+
+  <p class="album-quote">
+    Có điều gì trôi qua rất khẽ giống như tôi… chưa kịp gọi tên.
+  </p>
+</section>
+
+<!-- === Color Tokens === -->
+<section class="tokens-section">
+  <div class="tokens-label">Color Tokens — CC-13 Indie Surreal Vinyl</div>
+  <div class="tokens-grid">
+    <div class="token-swatch">
+      <div class="token-color" style="background:#F5EDE0"></div>
+      <span class="token-name">Paper Cream</span>
+      <span class="token-hex">#F5EDE0</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#EFE3D2"></div>
+      <span class="token-name">Paper Warm</span>
+      <span class="token-hex">#EFE3D2</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#D4A847"></div>
+      <span class="token-name">Mustard Sun</span>
+      <span class="token-hex">#D4A847</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#C95F3A"></div>
+      <span class="token-name">Terracotta</span>
+      <span class="token-hex">#C95F3A</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#6B8E7F"></div>
+      <span class="token-name">Sage Teal</span>
+      <span class="token-hex">#6B8E7F</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#2A3A5C"></div>
+      <span class="token-name">Indigo Night</span>
+      <span class="token-hex">#2A3A5C</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#8FA3B5"></div>
+      <span class="token-name">Cool Gray</span>
+      <span class="token-hex">#8FA3B5</span>
+    </div>
+    <div class="token-swatch">
+      <div class="token-color" style="background:#1A1814"></div>
+      <span class="token-name">Ink Black</span>
+      <span class="token-hex">#1A1814</span>
+    </div>
+  </div>
+</section>
+
+<!-- === Typography Demo === -->
+<section class="typography-demo">
+  <div class="type-row">
+    <div class="type-label">DISPLAY — FRAUNCES SERIF HEAVY</div>
+    <p class="type-h1">Một sợi nắng</p>
+  </div>
+  <div class="type-row">
+    <div class="type-label">SECONDARY — FRAUNCES MEDIUM</div>
+    <p class="type-h2">Đi giữa im lặng</p>
+  </div>
+  <div class="type-row">
+    <div class="type-label">ITALIC ACCENT — FRAUNCES ITALIC</div>
+    <p class="type-italic">Có điều gì trôi qua rất khẽ...</p>
+  </div>
+  <div class="type-row">
+    <div class="type-label">MONO LABEL — JETBRAINS MONO TRACKING 0.3em</div>
+    <p class="type-mono">An album by mindartsy · stereo · high fidelity</p>
+  </div>
+  <div class="type-row">
+    <div class="type-label">BODY — INTER 16PX</div>
+    <p class="type-body">
+      Phong cách Indie Surreal Vinyl kết hợp 4 layers: vintage vinyl album cover (60-70s LP),
+      surreal collage (Magritte arches + sky), mid-century modern typography (Saul Bass era),
+      và indie folk music aesthetic thập niên 2010-2020. Phù hợp cho music covers, poetry publications,
+      contemplative brands.
+    </p>
+  </div>
+</section>
+
+<!-- === Use Cases === -->
+<section class="usecases">
+  <h2>Use Cases — phù hợp khi nào?</h2>
+  <div class="usecase-grid">
+    <div class="usecase">
+      <strong>Music album covers</strong>
+      <p>Indie / folk / dream-pop / lo-fi music releases. Reference: Fleet Foxes, Bon Iver, Phoebe Bridgers, Khruangbin.</p>
+    </div>
+    <div class="usecase">
+      <strong>Poetry publications</strong>
+      <p>Vietnamese contemporary poetry collections, literary anthologies, chapbooks.</p>
+    </div>
+    <div class="usecase">
+      <strong>Podcast cover art</strong>
+      <p>Mindfulness, philosophy, slow-living, narrative non-fiction podcasts.</p>
+    </div>
+    <div class="usecase">
+      <strong>Indie brand</strong>
+      <p>Mindful brands (mindartsy-style), wellness, slow-fashion, artisan crafts.</p>
+    </div>
+    <div class="usecase">
+      <strong>Editorial layouts</strong>
+      <p>Magazine spreads (mood photography), contemporary art curation, lifestyle features.</p>
+    </div>
+    <div class="usecase">
+      <strong>Indie games</strong>
+      <p>Narrative-driven games, walking simulators, contemplative gameplay.</p>
+    </div>
+  </div>
+</section>
+
+<!-- === Footer === -->
+<footer class="footer">
+  <div>CC-13 INDIE SURREAL VINYL · COSMOS DESIGN SHOWCASE · REFERENCE LIBRARY</div>
+  <div class="footer-italic">"Có điều gì trôi qua rất khẽ giống như tôi..."</div>
+</footer>
+
+</main>
+
+</body>
+</html>
